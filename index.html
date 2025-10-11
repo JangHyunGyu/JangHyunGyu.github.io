@@ -378,56 +378,51 @@
 
     <!-- 페이지 하단에는 푸터를 배치해 추가 정보를 제공합니다. -->
     <footer>
-      <!-- 푸터 상단은 세 개의 컬럼으로 나눠 간단한 정보를 공유합니다. -->
-      <div class="footer-top">
-        <!-- 로고와 짧은 소개 문장을 한 묶음으로 구성합니다. -->
-        <div>
-          <!-- 푸터에서도 로고를 제공해 페이지 내 네비게이션을 돕습니다. -->
-          <a class="logo" href="#top">
-            <!-- 푸터에서도 동일한 켄타우로스 로고를 사용합니다. -->
-            <img
-              class="logo-img"
-              src="assets/images/archerlab_mini_logo.png"
-              alt=""
-              width="48"
-              height="48"
-              decoding="async"
-            />
-            <!-- 텍스트 로고입니다. -->
-            ArcherLab
-          </a>
-          <!-- 테스트 존에 대한 소개 문장입니다. -->
-          <p class="footer-intro">
-            테스트 존. 코드, 오디오, 라이트 인터페이스를 연구합니다.
-          </p>
+      <div class="footer-surface">
+        <!-- 푸터 상단을 네온 보드 형태로 재구성합니다. -->
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="logo" href="#top">
+              <img
+                class="logo-img"
+                src="assets/images/archerlab_mini_logo.png"
+                alt=""
+                width="48"
+                height="48"
+                decoding="async"
+              />
+              ArcherLab
+            </a>
+            <p class="footer-intro">
+              테스트 존. 코드, 오디오, 라이트 인터페이스를 연구합니다.
+            </p>
+            <div class="footer-signal">
+              <span class="footer-label">Now streaming</span>
+              <p class="footer-signal-value">ThinkPad X1 · Modular synth · Drip coffee</p>
+            </div>
+          </div>
+          <div class="footer-column">
+            <span class="footer-label">Navigate</span>
+            <nav class="footer-nav" aria-label="푸터 내비게이션">
+              <a href="#experiments">Experiments</a>
+              <a href="#toolkit">Toolkit</a>
+              <a href="#log">Signal Log</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+          <div class="footer-column">
+            <span class="footer-label">Signal Channels</span>
+            <nav class="footer-nav" aria-label="연락 채널">
+              <a href="mailto:hyungyu@archerlab.dev">Email</a>
+              <a href="https://github.com/JangHyunGyu" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://soundcloud.com" target="_blank" rel="noopener">SoundCloud</a>
+            </nav>
+          </div>
         </div>
-        <!-- 푸터 네비게이션으로 주요 섹션 링크를 다시 안내합니다. -->
-        <div class="footer-nav" aria-label="푸터 내비게이션">
-          <!-- 실험 섹션 링크입니다. -->
-          <a href="#experiments">Experiments</a>
-          <!-- 도구 섹션 링크입니다. -->
-          <a href="#toolkit">Toolkit</a>
-          <!-- 로그 섹션 링크입니다. -->
-          <a href="#log">Signal Log</a>
-          <!-- 연락처 섹션 링크입니다. -->
-          <a href="#contact">Contact</a>
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> ArcherLab · crafted in Daegu at night</span>
+          <span>Session window opens 23:00 – 03:00 KST</span>
         </div>
-        <!-- 외부 채널과 소셜 링크를 모아 제공합니다. -->
-        <div class="footer-nav" aria-label="연락 채널">
-          <!-- 메일 주소를 다시 안내합니다. -->
-          <a href="mailto:hyungyu@archerlab.dev">Email</a>
-          <!-- 깃허브 프로필 링크를 추가합니다. -->
-          <a href="https://github.com/JangHyunGyu" target="_blank" rel="noopener">GitHub</a>
-          <!-- 사운드 관련 작업을 공유하는 채널입니다. -->
-          <a href="https://soundcloud.com" target="_blank" rel="noopener">SoundCloud</a>
-        </div>
-      </div>
-      <!-- 푸터 하단에는 저작권과 위치 정보를 간단히 표기합니다. -->
-      <div class="footer-bottom">
-        <!-- 연도를 자동으로 채우기 위해 span 요소를 둡니다. -->
-        <span>© <span id="year"></span> ArcherLab · crafted in Daegu at night</span>
-        <!-- 불필요한 사업자 정보 대신 짧은 여담을 남깁니다. -->
-        <span>장비 열 기준: ThinkPad X1 + 모듈러 신스 + 드립 커피</span>
       </div>
     </footer>
     <!-- 자바스크립트 파일을 defer로 불러와 DOM 파싱을 방해하지 않습니다. -->

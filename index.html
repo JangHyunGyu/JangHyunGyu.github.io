@@ -30,8 +30,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Manrope 폰트를 불러와 전체 레이아웃에 사용합니다. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <!-- 메인 스타일시트를 연결해 아래에서 정의한 다크모드 테마를 적용합니다. -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -43,11 +47,11 @@
       <div class="navbar">
         <!-- 로고는 홈으로 이동하는 링크 역할을 합니다. -->
         <a class="logo" href="#top" aria-label="ArcherLab 메인으로 이동">
-          <!-- 새 켄타우로스 로고 이미지를 배치합니다. -->
+          <!-- 로고 이미지를 배치합니다. -->
           <img
             class="logo-img"
             src="assets/images/archerlab_mini_logo.png"
-            alt="ArcherLab 켄타우로스 로고"
+            alt="ArcherLab 로고"
             width="48"
             height="48"
             decoding="async"
@@ -80,7 +84,7 @@
         <h1>Logic × Design, in practice.</h1>
         <!-- 서브헤드에서 브랜드 콘셉트를 한국어로 설명합니다. -->
         <p>
-          개인 플레이그라운드입니다. 문제를 정의하고 코드를 작성해 검증합니다.
+          테스트 존입니다. 문제를 정의하고 코드를 작성해 검증합니다.
           인터페이스는 데이터와 사용성 기준으로 설계합니다.
         </p>
         <!-- 행동 유도 버튼 묶음으로 방문자가 다음으로 할 일을 제안합니다. -->
@@ -172,10 +176,10 @@
           <article class="feature-card philosophy-card">
             <!-- 핵심 문장을 인용태그로 감싼 뒤 강조합니다. -->
             <blockquote>
-              데이터와 UX가 맞물릴 때 품질이 오른다.
+              단편 지식을 구조화해 기록한다.
             </blockquote>
             <!-- 문장에 대한 짧은 해설을 제공합니다. -->
-            <p>데이터 구조와 사용자 경험을 함께 조정합니다. 세부 기준은 문서화합니다.</p>
+            <p>산발적인 경험과 지식을 맥락으로 묶어 재활용 가능한 기록으로 남깁니다.</p>
           </article>
         </div>
       </section>
@@ -297,7 +301,7 @@
         <!-- 섹션 헤더에는 제목과 가벼운 설명을 둡니다. -->
         <div class="section-heading">
           <!-- 로그 제목입니다. -->
-          <h2>Signal Log — 주간 기록</h2>
+          <h2>Signal Log</h2>
           <!-- 로그의 성격을 소개하는 문장입니다. -->
           <p>실패에서 배운 점을 우선 기록합니다. 아래는 최근 일주일 기록입니다.</p>
         </div>
@@ -356,14 +360,12 @@
         <!-- 연락처 정보를 카드 형태로 감싸 가독성을 높입니다. -->
         <div class="feature-card contact-card">
           <!-- 메일 주소를 크게 노출합니다. -->
-          <p class="contact-mail">hyungyu@archerlab.dev</p>
+          <div class="contact-mail">
+            <span class="contact-mail-label">Email</span>
+            <a class="contact-mail-address" href="mailto:hyungyu@archerlab.dev">hyungyu@archerlab.dev</a>
+          </div>
           <!-- 추가 안내 문구로 메일에 포함하면 좋을 내용을 적습니다. -->
           <p class="contact-note">현재 관심사, 함께 시도할 실험, 간단한 안부 등 자유롭게 보내주세요.</p>
-          <!-- 행동 유도 버튼을 두 개 배치합니다. -->
-          <div class="hero-actions">
-            <!-- 메일 작성기를 바로 열어주는 버튼입니다. -->
-            <a class="cta-btn" href="mailto:hyungyu@archerlab.dev?subject=Midnight%20Lab%20Hello" data-cta="contact">메일 쓰기</a>
-          </div>
         </div>
       </section>
     </main>
@@ -388,9 +390,9 @@
             <!-- 텍스트 로고입니다. -->
             ArcherLab
           </a>
-          <!-- 개인 플레이그라운드에 대한 소개 문장입니다. -->
+          <!-- 테스트 존에 대한 소개 문장입니다. -->
           <p class="footer-intro">
-            개인 플레이그라운드. 코드, 오디오, 라이트 인터페이스를 연구합니다.
+            테스트 존. 코드, 오디오, 라이트 인터페이스를 연구합니다.
           </p>
         </div>
         <!-- 푸터 네비게이션으로 주요 섹션 링크를 다시 안내합니다. -->

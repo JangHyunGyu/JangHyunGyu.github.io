@@ -309,18 +309,12 @@
 
       .question-cell {
         color: #d9e8f2;
-        font-size: 14px;
-        line-height: 1.65;
+        font-size: 13px;
+        line-height: 1.55;
       }
 
       .question-cell::before {
-        display: inline-block;
-        margin-right: 7px;
-        color: var(--question);
-        content: "Q";
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 800;
+        display: none;
       }
 
       .question-cell a {
@@ -329,18 +323,47 @@
         text-underline-offset: 3px;
       }
 
-      .recommend {
+      .question-list {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .question-list li {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        align-items: start;
+        gap: 8px;
+      }
+
+      .question-type {
         display: inline-flex;
         align-items: center;
-        padding: 2px 7px;
-        margin-right: 7px;
-        border: 1px solid rgba(213, 163, 94, 0.35);
-        border-radius: 999px;
+        justify-content: center;
+        min-height: 20px;
+        padding: 2px 4px;
+        border: 1px solid rgba(159, 202, 230, 0.22);
+        border-radius: 5px;
+        color: var(--question);
+        background: rgba(159, 202, 230, 0.08);
+        font-size: 9px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.03em;
+      }
+
+      .question-type--concept {
+        border-color: rgba(213, 163, 94, 0.3);
         color: var(--accent-bright);
         background: var(--accent-soft);
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.04em;
+      }
+
+      .question-type--incident {
+        border-color: rgba(228, 136, 111, 0.28);
+        color: #f0b09d;
+        background: rgba(228, 136, 111, 0.09);
       }
 
       .study-rule {
@@ -519,11 +542,15 @@
 
         .question-cell::before {
           display: block;
-          margin: 0 0 5px;
-          content: "질문 예시";
+          margin: 0 0 10px;
+          content: "질문 예시 · 기본 1 + 환경 3 + 장애 1";
           font-family: var(--font-sans);
           font-size: 10px;
           letter-spacing: 0.08em;
+        }
+
+        .question-list {
+          gap: 11px;
         }
 
         .study-rule {
@@ -655,12 +682,24 @@
         }
 
         .question-cell::before {
-          display: inline-block;
-          margin: 0 7px 0 0;
-          content: "Q";
-          font-family: var(--font-mono);
-          font-size: 11px;
-          letter-spacing: normal;
+          display: none;
+        }
+
+        .question-list {
+          gap: 4px;
+        }
+
+        .question-list li {
+          grid-template-columns: 28px minmax(0, 1fr);
+          gap: 4px;
+        }
+
+        .question-type {
+          min-height: 14px;
+          padding: 1px 2px;
+          color: var(--text);
+          background: transparent;
+          font-size: 7px;
         }
       }
     </style>
@@ -693,7 +732,7 @@
         </h2>
         <div class="table-note" aria-hidden="true">
           <span><strong>각 회차:</strong> 4명이 세부 주제를 하나씩 담당합니다.</span>
-          <span>모바일에서는 회차별 카드로 표시됩니다.</span>
+          <span>질문은 기본 1개 · 우리 환경 3개 · 장애 상황 1개로 구성됩니다.</span>
         </div>
 
         <div class="table-scroll" tabindex="0" role="region" aria-label="20주 웹 개발 기본기 스터디 표">
@@ -710,7 +749,7 @@
                 <th scope="col">회차</th>
                 <th scope="col">공통 주제</th>
                 <th scope="col">4인 세부 분량</th>
-                <th scope="col">질문 예시</th>
+                <th scope="col">질문 예시 (5개)</th>
               </tr>
             </thead>
             <tbody>
@@ -720,7 +759,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>인터넷</li><li>웹</li><li>브라우저</li><li>HTML</li></ol>
                 </td>
-                <td class="question-cell">인터넷 없이 HTML이 열리면 웹을 사용한 건가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>인터넷 없이 HTML이 열리면 웹을 사용한 건가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue와 eXBuilder로 만든 화면도 브라우저 입장에서는 HTML·CSS·JavaScript로 구성된 웹인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache와 WildFly는 인터넷 자체인가요, 인터넷을 통해 웹 서비스를 제공하는 프로그램인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>브라우저에 URL을 입력하면 Apache, WildFly, eGovFrame, Tibero를 어떤 순서로 거칠 수 있나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>인터넷이 끊겼는데 기존 화면은 보이고 새 데이터만 나오지 않는다면 무엇이 남아 있고 무엇이 끊긴 걸까요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>02</th>
@@ -728,7 +775,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>클라이언트</li><li>서버</li><li>프론트엔드</li><li>백엔드</li></ol>
                 </td>
-                <td class="question-cell">클라이언트와 프론트엔드, 서버와 백엔드는 각각 같은 개념인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>클라이언트와 프론트엔드, 서버와 백엔드는 각각 같은 개념인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue와 eXBuilder는 클라이언트인가요, 프론트엔드인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache와 WildFly는 둘 다 서버인데 어떤 역할이 다른가요?</span></li>
+                    <li><span class="question-type">환경</span><span>eGovFrame 애플리케이션과 Tibero는 백엔드에서 각각 어떤 역할을 하나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>화면은 열리지만 데이터가 나오지 않는다면 Vue/eXBuilder → Apache → WildFly → eGovFrame → Tibero 중 어디부터 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>03</th>
@@ -737,7 +792,13 @@
                   <ol class="parts"><li>IP</li><li>DNS</li><li>포트</li><li>TCP/UDP</li></ol>
                 </td>
                 <td class="question-cell">
-                  <a href="https://example.com:443" target="_blank" rel="noreferrer"><code>https://example.com:443</code></a>에서 각 개념은 어떤 역할을 하나요?
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span><a href="https://example.com:443" target="_blank" rel="noreferrer"><code>https://example.com:443</code></a>에서 IP, DNS, 포트, TCP/UDP는 각각 어떤 역할을 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>DNS는 Apache와 WildFly 중 어느 프로그램을 찾는 걸까요, 아니면 서버의 IP까지만 찾는 걸까요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache가 443번, WildFly가 별도 내부 포트를 사용한다면 두 포트는 왜 필요한가요?</span></li>
+                    <li><span class="question-type">환경</span><span>브라우저와 Apache의 연결, Apache와 WildFly의 연결은 하나의 TCP 연결인가요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>도메인은 IP로 변환되지만 연결이 거부된다면 DNS, 포트, 방화벽, 서버 프로세스 중 무엇을 확인해야 하나요?</span></li>
+                  </ul>
                 </td>
               </tr>
               <tr>
@@ -746,7 +807,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>URL과 리소스</li><li>메서드와 멱등성</li><li>상태 코드와 메시지</li><li>HTTP 캐시</li></ol>
                 </td>
-                <td class="question-cell"><code>404</code>를 받았다면 서버 연결에 실패한 건가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span><code>404</code>를 받았다면 서버 연결에 실패한 건가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue와 eXBuilder가 보내는 요청도 결국 같은 구조의 HTTP 요청인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>정적 파일은 Apache가, API는 WildFly가 응답한다면 실제 응답 주체를 어떻게 구분할 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eGovFrame API가 조회와 변경을 모두 <code>POST</code>로 처리해도 HTTP 관점에서 문제가 없나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span><code>502</code>, <code>500</code>, 응답 시간 초과는 각각 Apache와 WildFly의 어느 구간을 의심하게 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr class="phase-start">
                 <th class="week-cell" scope="row"><span>Week</span>05</th>
@@ -754,7 +823,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>문서 구조</li><li>콘텐츠 모델</li><li>시맨틱과 접근성</li><li>폼과 데이터</li></ol>
                 </td>
-                <td class="question-cell">버튼처럼 생긴 <code>div</code>는 버튼인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>버튼처럼 생긴 <code>div</code>는 버튼인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue 템플릿에 작성한 태그는 브라우저에서 어떤 DOM 구조로 만들어지나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder가 만든 화면도 시맨틱 HTML과 웹 접근성을 고려해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache가 HTML을 보내고 WildFly가 데이터를 보내면 최종 화면은 어느 쪽에서 완성되나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>HTML 응답은 정상인데 빈 화면만 보인다면 HTML 구조, JavaScript, CSS, API 중 무엇부터 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>06</th>
@@ -762,7 +839,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>캐스케이드</li><li>명시도와 상속</li><li>박스 모델</li><li>문서 흐름과 display</li></ol>
                 </td>
-                <td class="question-cell">나중에 작성한 CSS가 항상 먼저 작성한 CSS를 덮어쓰나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>나중에 작성한 CSS가 항상 먼저 작성한 CSS를 덮어쓰나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue의 scoped 스타일은 어떤 원리로 다른 컴포넌트의 스타일과 충돌을 줄이나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder의 공통 테마와 화면별 스타일이 같은 속성을 지정하면 무엇이 우선하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Jenkins로 새 CSS를 배포했는데 브라우저나 Apache 캐시 때문에 이전 스타일이 보일 수 있나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>CSS 파일은 로드됐지만 속성이 적용되지 않을 때 개발자 도구에서 어떤 규칙과 박스 값을 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>07</th>
@@ -770,7 +855,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>Flexbox</li><li>Grid</li><li>Position과 Stacking Context</li><li>반응형 디자인</li></ol>
                 </td>
-                <td class="question-cell">같은 화면을 만들었는데 어떤 레이아웃은 왜 쉽게 무너지나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>같은 화면을 만들었는데 어떤 레이아웃은 왜 쉽게 무너지나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue 컴포넌트의 너비는 컴포넌트 자신과 부모 레이아웃 중 누가 결정해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder의 고정 좌표 중심 화면과 반응형 웹 화면은 크기 변화에 어떻게 다르게 대응하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue와 eXBuilder 화면을 한 가지 해상도에서만 확인하면 어떤 문제를 놓칠 수 있나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>모바일에서 오른쪽 버튼이나 카드가 잘린다면 고정 너비, 최소 너비, overflow 중 무엇부터 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>08</th>
@@ -778,7 +871,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>HTML 파싱과 DOM</li><li>CSSOM</li><li>렌더 트리와 레이아웃</li><li>페인트와 합성</li></ol>
                 </td>
-                <td class="question-cell">DOM에 존재하는 요소가 화면에는 보이지 않을 수 있나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>DOM에 존재하는 요소가 화면에는 보이지 않을 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue의 상태가 바뀐 뒤 실제 픽셀이 달라질 때까지 브라우저에서는 어떤 과정이 일어나나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder의 데이터 바인딩으로 값이 바뀌면 DOM 전체를 다시 만드는 걸까요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache의 정적 파일과 WildFly의 API 응답 도착 순서는 첫 화면 표시 시점에 어떤 영향을 주나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>API 응답은 <code>200</code>인데 화면이 비어 있다면 네트워크 이후의 어떤 렌더링 단계를 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr class="phase-start">
                 <th class="week-cell" scope="row"><span>Week</span>09</th>
@@ -786,7 +887,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>값과 타입</li><li>타입 변환과 동등성</li><li>참조와 동일성</li><li>가변성과 불변성</li></ol>
                 </td>
-                <td class="question-cell">내용이 같은 두 배열은 왜 서로 같지 않나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>내용이 같은 두 배열은 왜 서로 같지 않나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Tibero의 숫자 값이 eGovFrame의 JSON을 거쳐 JavaScript에서 문자열로 도착할 수도 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder 데이터셋의 <code>1</code>과 JavaScript의 <code>"1"</code>을 비교하면 어떤 문제가 생길 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue 상태 객체의 속성만 바꾼 경우 객체의 참조와 화면의 값은 각각 어떻게 달라지나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>금액을 더했는데 <code>10002000</code>처럼 이어 붙여졌다면 어느 시점의 타입을 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>10</th>
@@ -794,7 +903,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>함수와 실행 컨텍스트</li><li>렉시컬 스코프</li><li>호출 스택</li><li>클로저</li></ol>
                 </td>
-                <td class="question-cell">함수가 종료된 뒤에도 변수가 남아 있는 이유는 무엇인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>함수가 종료된 뒤에도 변수가 남아 있는 이유는 무엇인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue 템플릿에 연결한 클릭 함수는 화면이 만들어질 때 실행되나요, 클릭할 때 실행되나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder 이벤트 함수가 받는 이벤트 객체와 화면 데이터는 각각 어디에서 온 값인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>WildFly의 API 응답을 처리하는 콜백은 요청 함수가 끝난 뒤에도 이전 변수를 어떻게 사용할 수 있나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>화면을 다시 열었더니 클릭 함수가 두 번 실행된다면 이벤트 등록과 생명주기 중 무엇을 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>11</th>
@@ -802,23 +919,47 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>객체와 프로토타입</li><li>배열과 순차 자료구조</li><li>해시·Map·Set</li><li>시간·공간 복잡도</li></ol>
                 </td>
-                <td class="question-cell">데이터가 10배로 늘어나면 실행 시간도 반드시 10배가 되나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>데이터가 10배로 늘어나면 실행 시간도 반드시 10배가 되나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue의 표 데이터를 배열과 객체로 표현할 때 행 식별자는 왜 필요한가요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder 데이터셋의 행과 JavaScript 객체 배열은 어떤 기준으로 서로 변환할 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Tibero 행이 eGovFrame과 JSON을 거쳐 화면 자료구조가 될 때 어느 계층에서 형태를 바꾸는 것이 좋나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>수만 건을 조회한 뒤 화면이 멈춘다면 Tibero 조회, 네트워크 전송, JavaScript 처리, 렌더링을 어떻게 나눠 확인할까요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>12</th>
-                <td class="theme-cell">DOM과 이벤트</td>
+                <td class="theme-cell">프론트엔드 화면과 상태</td>
                 <td class="parts-cell">
-                  <ol class="parts"><li>DOM 트리</li><li>상태와 DOM 변경</li><li>이벤트 전파</li><li>기본 동작과 이벤트 위임</li></ol>
+                  <ol class="parts"><li>DOM과 이벤트</li><li>컴포넌트</li><li>상태와 반응성</li><li>데이터 바인딩과 생명주기</li></ol>
                 </td>
-                <td class="question-cell">자식 요소를 클릭했는데 부모 이벤트도 실행되는 이유는 무엇인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>DOM을 직접 변경하는 것과 상태를 변경해 화면을 다시 그리게 하는 것은 무엇이 다른가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue에서 props, 내부 상태, 반응성은 컴포넌트 사이의 데이터 흐름을 어떻게 나누나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder의 데이터 바인딩은 화면 컴포넌트와 데이터셋을 어떻게 연결하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue와 eXBuilder는 구현 방식이 달라도 컴포넌트, 상태, 이벤트라는 공통 개념으로 설명할 수 있나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>데이터 값은 바뀌었는데 화면이 갱신되지 않는다면 참조, 바인딩, 생명주기 중 무엇을 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>13</th>
-                <td class="theme-cell">비동기 실행</td>
+                <td class="theme-cell">비동기와 데이터 통신</td>
                 <td class="parts-cell">
-                  <ol class="parts"><li>동기와 비동기</li><li>이벤트 루프</li><li>태스크와 마이크로태스크</li><li>Promise와 오류 전파</li></ol>
+                  <ol class="parts"><li>동기와 비동기</li><li>이벤트 루프</li><li>Promise와 async/await</li><li>API 통신과 오류 처리</li></ol>
                 </td>
-                <td class="question-cell"><code>setTimeout(fn, 0)</code>이 즉시 실행되지 않는 이유는 무엇인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span><code>setTimeout(fn, 0)</code>이 즉시 실행되지 않는 이유는 무엇인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue 화면이 여러 eGovFrame API를 호출할 때 응답 순서를 보장할 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eXBuilder에서 서버 통신이 끝나기 전에 다음 로직을 실행하면 어떤 문제가 생길 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache나 WildFly의 응답이 늦어도 브라우저 화면이 계속 반응할 수 있는 이유는 무엇인가요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>먼저 검색한 느린 응답이 나중 검색 결과를 덮어썼다면 어떤 경쟁 상태가 발생한 것인가요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr class="phase-start">
                 <th class="week-cell" scope="row"><span>Week</span>14</th>
@@ -826,23 +967,47 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>리소스와 REST</li><li>직렬화와 JSON</li><li>검증과 오류 모델</li><li>페이지네이션과 버전</li></ol>
                 </td>
-                <td class="question-cell">동작만 한다면 모든 요청을 <code>POST</code>로 만들어도 괜찮나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>동작만 한다면 모든 요청을 <code>POST</code>로 만들어도 괜찮나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue와 eXBuilder가 같은 eGovFrame API를 사용하려면 어떤 요청·응답 계약을 공유해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>필수 값 검증을 프론트엔드에서 했다면 eGovFrame에서도 다시 검증해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Tibero 테이블 구조를 그대로 API 리소스 구조로 노출하면 어떤 결합이 생기나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>같은 API가 Vue에서는 성공하고 eXBuilder에서는 실패한다면 헤더, 직렬화, 날짜·빈 값 표현 중 무엇을 비교해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>15</th>
-                <td class="theme-cell">서버 내부 구조</td>
+                <td class="theme-cell">웹 서버와 애플리케이션 서버</td>
                 <td class="parts-cell">
-                  <ol class="parts"><li>프로세스와 스레드</li><li>요청 처리와 미들웨어</li><li>동시성과 경쟁 상태</li><li>무상태와 확장</li></ol>
+                  <ol class="parts"><li>웹 서버(Apache)</li><li>WAS(WildFly)</li><li>애플리케이션(eGovFrame)</li><li>프로세스·스레드와 동시성</li></ol>
                 </td>
-                <td class="question-cell">서버 하나는 여러 요청을 어떻게 동시에 처리하나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>웹 서버, WAS, 백엔드는 모두 같은 개념인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache는 정적 파일 제공과 WildFly로의 요청 전달을 각각 어떻게 처리하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>WildFly와 eGovFrame은 서버와 프레임워크라는 점에서 어떤 역할 차이가 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Apache와 WildFly가 별도 프로세스와 포트로 동작하면 여러 요청은 어디에서 동시에 처리되나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>Apache는 살아 있지만 <code>502</code>가 발생한다면 WildFly 프로세스, 내부 포트, 요청 전달 설정 중 무엇을 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>16</th>
-                <td class="theme-cell">데이터베이스</td>
+                <td class="theme-cell">관계형 데이터베이스</td>
                 <td class="parts-cell">
-                  <ol class="parts"><li>테이블·키·관계</li><li>SQL과 JOIN</li><li>인덱스</li><li>트랜잭션과 격리</li></ol>
+                  <ol class="parts"><li>테이블·키·관계</li><li>SQL과 JOIN</li><li>인덱스와 실행 계획</li><li>트랜잭션과 잠금</li></ol>
                 </td>
-                <td class="question-cell">인덱스를 많이 만들수록 데이터베이스는 항상 빨라지나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>인덱스를 많이 만들수록 데이터베이스는 항상 빨라지나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eGovFrame의 트랜잭션이 실패했을 때 Tibero의 여러 변경은 어떻게 함께 롤백되나요?</span></li>
+                    <li><span class="question-type">환경</span><span>WildFly의 데이터베이스 연결 풀과 Tibero의 세션은 어떤 관계인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>같은 SQL도 Tibero의 데이터 양과 실행 계획에 따라 속도가 달라지는 이유는 무엇인가요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>개발에서는 빠른 조회가 운영에서 느리다면 실행 계획, 통계 정보, 잠금, 데이터 양 중 무엇을 비교해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>17</th>
@@ -850,7 +1015,15 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>인증과 인가</li><li>비밀번호 해시</li><li>쿠키와 세션</li><li>토큰과 JWT</li></ol>
                 </td>
-                <td class="question-cell">JWT를 사용하면 서버에 로그인 상태를 전혀 저장하지 않아도 되나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>로그인에 성공했다는 것과 특정 데이터를 조회할 권한이 있다는 것은 같은 의미인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue나 eXBuilder에서 권한 없는 버튼을 숨기면 서버의 인가 검사를 생략해도 되나요?</span></li>
+                    <li><span class="question-type">환경</span><span>브라우저의 쿠키와 WildFly의 세션은 로그인 상태를 어떻게 연결하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>eGovFrame의 권한 검사와 Tibero의 사용자별 데이터 조건은 어느 계층에서 책임져야 하나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>로그인은 성공했지만 특정 API만 <code>401</code> 또는 <code>403</code>을 반환한다면 무엇이 다른가요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>18</th>
@@ -858,23 +1031,47 @@
                 <td class="parts-cell">
                   <ol class="parts"><li>HTTPS/TLS</li><li>동일 출처 정책과 CORS</li><li>XSS</li><li>CSRF</li></ol>
                 </td>
-                <td class="question-cell">브라우저에서는 CORS 오류가 나는데 <code>curl</code>에서는 성공하는 이유는 무엇인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>브라우저에서는 CORS 오류가 나는데 <code>curl</code>에서는 성공하는 이유는 무엇인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>HTTPS가 Apache에서 끝나고 Apache가 WildFly와 HTTP로 통신한다면 어느 구간을 신뢰해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Tibero에서 가져온 사용자 입력을 Vue나 eXBuilder 화면에 그대로 출력하면 XSS가 발생할 수 있나요?</span></li>
+                    <li><span class="question-type">환경</span><span>쿠키 기반 세션을 사용하는 eGovFrame API는 왜 CSRF 방어가 필요한가요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>도메인이나 포트를 바꾼 뒤 API 호출이 막혔다면 CORS, 인증서, 혼합 콘텐츠 중 무엇을 확인해야 하나요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr class="phase-start">
                 <th class="week-cell" scope="row"><span>Week</span>19</th>
-                <td class="theme-cell">개발 품질</td>
+                <td class="theme-cell">형상관리와 개발 품질</td>
                 <td class="parts-cell">
-                  <ol class="parts"><li>Git의 동작 원리</li><li>디버깅과 로그</li><li>단위/통합/E2E 테스트</li><li>결합도와 리팩터링</li></ol>
+                  <ol class="parts"><li>Git과 SVN</li><li>변경 이력과 충돌</li><li>테스트</li><li>디버깅과 로그</li></ol>
                 </td>
-                <td class="question-cell">테스트가 모두 통과했는데 운영 서비스는 왜 실패할 수 있나요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>커밋, 푸시, 업데이트, 빌드, 배포는 각각 같은 작업인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Git과 SVN을 함께 사용한다면 어떤 저장소의 어떤 리비전이 기준인지 어떻게 정해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue, eXBuilder, eGovFrame의 소스와 생성 파일, 빌드 결과물은 모두 형상관리해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>로컬 테스트는 통과했는데 Jenkins에서 실패한다면 Maven 의존성과 환경 차이를 어떻게 확인하나요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>수정한 코드가 운영에 반영되지 않았다면 Git/SVN 리비전부터 Jenkins 빌드와 배포 파일까지 어떻게 추적할까요?</span></li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th class="week-cell" scope="row"><span>Week</span>20</th>
-                <td class="theme-cell">배포와 운영</td>
+                <td class="theme-cell">빌드·배포·운영</td>
                 <td class="parts-cell">
-                  <ol class="parts"><li>빌드와 환경 설정</li><li>리버스 프록시와 배포</li><li>CDN과 성능</li><li>로그·메트릭·트레이싱</li></ol>
+                  <ol class="parts"><li>Maven과 의존성</li><li>Jenkins 파이프라인</li><li>Apache·WildFly 배포</li><li>환경 설정·모니터링·롤백</li></ol>
                 </td>
-                <td class="question-cell"><span class="recommend">추천</span>새로 배포했는데 일부 사용자에게 이전 화면이 보이는 이유는 무엇인가요?</td>
+                <td class="question-cell">
+                  <ul class="question-list">
+                    <li><span class="question-type question-type--concept">기본</span><span>빌드에 성공했다는 것과 운영 서버에 배포됐다는 것은 같은 의미인가요?</span></li>
+                    <li><span class="question-type">환경</span><span>Maven은 eGovFrame 소스와 의존성을 어떤 배포 결과물로 만들며 그 결과물에는 무엇이 포함되나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Jenkins 파이프라인은 Git/SVN 가져오기, 테스트, Maven 빌드, 배포를 어떤 순서로 자동화해야 하나요?</span></li>
+                    <li><span class="question-type">환경</span><span>Vue/eXBuilder 정적 파일을 Apache에 배포하는 것과 eGovFrame 애플리케이션을 WildFly에 배포하는 것은 무엇이 다른가요?</span></li>
+                    <li><span class="question-type question-type--incident">장애</span><span>새로 배포했는데 일부 사용자에게 이전 화면이 보인다면 브라우저·Apache 캐시, Jenkins 산출물, WildFly 배포 상태를 어떻게 구분해 확인할까요?</span></li>
+                  </ul>
+                </td>
               </tr>
             </tbody>
           </table>

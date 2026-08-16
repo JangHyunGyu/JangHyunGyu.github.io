@@ -44,4 +44,18 @@
     <changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://archerlab.dev/seo/solo-developer-portfolio.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://archerlab.dev/seo/vibe-coding-examples.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<!-- traffic-pages:start -->
+  <url>
+    <loc>https://archerlab.dev/seo/browser-ai-tools.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://archerlab.dev/seo/solo-developer-web-stack.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+<!-- traffic-pages:end -->
 </urlset>

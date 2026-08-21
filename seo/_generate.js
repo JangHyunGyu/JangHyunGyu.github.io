@@ -1,6 +1,7 @@
 // archerlab SEO 생성기 — ko + en, 6 pages
 const fs = require('fs'); const path = require('path');
 const SITE = 'https://archerlab.dev';
+const ORIGIN_TRIAL_META = '<meta http-equiv="origin-trial" content="Agn9opFYdjvT/UqEIvt4RnCkmN8Kt+8/lzvg731pKSz7MpNoJkLvra/pLOIFgR9GZb39JbBGeJ+CDO++Tus3FggAAABmeyJvcmlnaW4iOiJodHRwczovL2FyY2hlcmxhYi5kZXY6NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTc5MjQ1NDQwMCwiaXNTdWJkb21haW4iOnRydWV9">';
 const HOME = { ko: '/', en: '/index-en.html' };
 
 const C = {
@@ -74,7 +75,7 @@ function render(lang, p) {
   const faqLd = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":c.faqs.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))};
   return `<!DOCTYPE html>
 <html lang="${c.htmlLang}"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">${ORIGIN_TRIAL_META}<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(p.title)}</title><meta name="description" content="${esc(p.meta)}">
 <link rel="canonical" href="${url}">
 ${altLinks}

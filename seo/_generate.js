@@ -70,7 +70,8 @@ const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;
 
 function render(lang, p) {
   const c = C[lang]; const url = `${SITE}/seo/${p.slug}.html`; const home = HOME[lang];
-  const altLinks = Object.keys(PAGES).map(L=>`<link rel="alternate" hreflang="${L}" href="${SITE}/seo/${PAGES[L][0].slug}.html">`).join('\n  ') + `\n  <link rel="alternate" hreflang="x-default" href="${SITE}/seo/${PAGES.en[0].slug}.html">`;
+  const pageIndex = PAGES[lang].indexOf(p);
+  const altLinks = Object.keys(PAGES).map(L=>`<link rel="alternate" hreflang="${L}" href="${SITE}/seo/${PAGES[L][pageIndex].slug}.html">`).join('\n  ') + `\n  <link rel="alternate" hreflang="x-default" href="${SITE}/seo/${PAGES.en[pageIndex].slug}.html">`;
   const otherLangs = Object.keys(PAGES).filter(L=>L!==lang).map(L=>`<a href="/seo/${PAGES[L][0].slug}.html">${L.toUpperCase()}</a>`).join(' · ');
   const faqLd = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":c.faqs.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))};
   return `<!DOCTYPE html>
@@ -104,11 +105,9 @@ for (const lang of Object.keys(PAGES)) for (const p of PAGES[lang]) {
   all.push({lang, slug:p.slug}); n++;
 }
 console.log(`✓ ${n} pages generated`);
-const firstSlugs = Object.fromEntries(Object.keys(PAGES).map(L => [L, PAGES[L][0].slug]));
 const frag = all.map(u => {
-  const isFirst = firstSlugs[u.lang] === u.slug;
-  let alts = '';
-  if (isFirst) alts = '\n' + Object.keys(PAGES).map(L=>`    <xhtml:link rel="alternate" hreflang="${L}" href="${SITE}/seo/${firstSlugs[L]}.html"/>`).join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/seo/${firstSlugs.en}.html"/>`;
+  const pageIndex = PAGES[u.lang].findIndex(p => p.slug === u.slug);
+  const alts = '\n' + Object.keys(PAGES).map(L=>`    <xhtml:link rel="alternate" hreflang="${L}" href="${SITE}/seo/${PAGES[L][pageIndex].slug}.html"/>`).join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/seo/${PAGES.en[pageIndex].slug}.html"/>`;
   return `  <url><loc>${SITE}/seo/${u.slug}.html</loc>${alts}\n    <changefreq>monthly</changefreq><priority>0.7</priority></url>`;
 }).join('\n');
 fs.writeFileSync(path.join(__dirname, '_sitemap_fragment.xml'), frag, 'utf8');

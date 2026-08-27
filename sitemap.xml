@@ -18,32 +18,36 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/index-en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/index-en" />
   </url>
-  <url>
-    <loc>https://archerlab.dev/privacy</loc>
-    <lastmod>2025-10-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://archerlab.dev/terms</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
   <url><loc>https://archerlab.dev/seo/side-project-idea.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://archerlab.dev/seo/side-project-idea.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/seo/side-project-ideas.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/seo/side-project-ideas.html"/>
     <changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://archerlab.dev/seo/1in-gaebal.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://archerlab.dev/seo/vibe-coding.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://archerlab.dev/seo/1in-gaebal.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://archerlab.dev/seo/1in-gaebal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/seo/solo-developer-portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/seo/solo-developer-portfolio.html"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://archerlab.dev/seo/vibe-coding.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://archerlab.dev/seo/vibe-coding.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/seo/vibe-coding-examples.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/seo/vibe-coding-examples.html"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://archerlab.dev/seo/side-project-ideas.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://archerlab.dev/seo/side-project-idea.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/seo/side-project-ideas.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/seo/side-project-ideas.html"/>
     <changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://archerlab.dev/seo/solo-developer-portfolio.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://archerlab.dev/seo/vibe-coding-examples.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://archerlab.dev/seo/solo-developer-portfolio.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://archerlab.dev/seo/1in-gaebal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/seo/solo-developer-portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/seo/solo-developer-portfolio.html"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://archerlab.dev/seo/vibe-coding-examples.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://archerlab.dev/seo/vibe-coding.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archerlab.dev/seo/vibe-coding-examples.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archerlab.dev/seo/vibe-coding-examples.html"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority></url>
 <!-- traffic-pages:start -->
   <url>
     <loc>https://archerlab.dev/seo/browser-ai-tools.html</loc>

@@ -1,20 +1,36 @@
 # ArcherLab
-> Personal web development hub — 7+ side projects built with frontend, backend, and AI.
+> Personal web development hub for 19 browser-based side projects built with frontend, backend, and AI.
 
 ## About
-ArcherLab is a personal dev hub by an indie developer. It combines frontend, backend, and AI to build prototypes and log experiments.
+ArcherLab is a personal development hub by an indie developer. It combines frontend, backend, and AI to build prototypes and document experiments.
 
 ## Projects
-- Cupid: Browser-based visual novel (dating sim) — play instantly, no install needed. 6 languages supported.
-- HN Top 10: Daily Korean translation/summary of Hacker News top 10 stories.
-- Golf Swing Analyzer: AI-powered golf swing analysis tool.
-- IT History Timeline: Interactive timeline of IT history milestones.
+- [LUMEN SHIFT](https://game.archerlab.dev/lumen-shift/)
+- [Jelly Pang!](https://game.archerlab.dev/jelly-pang-2048/)
+- [School Zombie Defense](https://game.archerlab.dev/school-zombie-defense/)
+- [Jewelria](https://game.archerlab.dev/jewelria/)
+- [Parking Escape](https://game.archerlab.dev/parking-escape/)
+- [Nevergrad](https://nevergrad.archerlab.dev/)
+- [Cat Tower](https://game.archerlab.dev/cat-tower/)
+- [Karma](https://karma.archerlab.dev/)
+- [Slime Volley](https://game.archerlab.dev/slimevolley/)
+- [Blockpang](https://game.archerlab.dev/blockpang/)
+- [Harem Mate](https://harem.archerlab.dev/)
+- [Cupid Visual Novel](https://cupid.archerlab.dev/)
+- [Walk with me](https://chatbot.archerlab.dev/)
+- [Shadow Survival](https://game.archerlab.dev/solo-leveling/)
+- [Golf Swing Master](https://golf.archerlab.dev/)
+- [Latin Dance Mate](https://latindance.kr/)
+- [IT Story Timeline](https://itstory.archerlab.dev/)
+- [HN Top 10](https://news.archerlab.dev/hn)
+- [ArcherLab Chat](https://chat.archerlab.dev/)
 
 ## Links
-- Main site: https://archerlab.dev
-- Cupid: https://cupid.archerlab.dev
-- HN News: https://news.archerlab.dev/hn
+- [Korean home](https://archerlab.dev/)
+- [English home](https://archerlab.dev/index-en)
+- [Sitemap](https://archerlab.dev/sitemap.xml)
+- [GitHub](https://github.com/JangHyunGyu)
 
 ## Languages
-- Korean (primary)
+- Korean
 - English

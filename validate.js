@@ -191,15 +191,58 @@ check(
   'sitemap missing English page URL'
 );
 check(
-  sitemapUrls.some(u => u.includes('/privacy')),
-  'sitemap contains privacy page URL',
-  'sitemap missing privacy page URL'
+  !sitemapUrls.some(u => u.includes('/privacy')),
+  'sitemap excludes noindex privacy page',
+  'sitemap must not contain noindex privacy page'
 );
 check(
-  sitemapUrls.some(u => u.includes('/terms')),
-  'sitemap contains terms page URL',
-  'sitemap missing terms page URL'
+  !sitemapUrls.some(u => u.includes('/terms')),
+  'sitemap excludes noindex terms page',
+  'sitemap must not contain noindex terms page'
 );
+
+for (const legalPage of ['privacy.html', 'terms.html']) {
+  const content = readFile(legalPage);
+  check(
+    /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(content),
+    `${legalPage} remains noindex`,
+    `${legalPage} must remain noindex while excluded from sitemap`
+  );
+}
+
+const seoLanguagePairs = [
+  ['seo/side-project-idea.html', 'seo/side-project-ideas.html'],
+  ['seo/1in-gaebal.html', 'seo/solo-developer-portfolio.html'],
+  ['seo/vibe-coding.html', 'seo/vibe-coding-examples.html'],
+];
+
+for (const [koPage, enPage] of seoLanguagePairs) {
+  const koUrl = `https://archerlab.dev/${koPage}`;
+  const enUrl = `https://archerlab.dev/${enPage}`;
+  for (const page of [koPage, enPage]) {
+    const content = readFile(page);
+    check(
+      content.includes(`hreflang="ko" href="${koUrl}"`) &&
+        content.includes(`hreflang="en" href="${enUrl}"`) &&
+        content.includes(`hreflang="x-default" href="${enUrl}"`),
+      `${page} has matching reciprocal hreflang URLs`,
+      `${page} has incorrect hreflang URLs`
+    );
+  }
+}
+
+for (const page of ['index.html', 'index-en.html']) {
+  const content = readFile(page);
+  for (const property of ['og:type', 'og:url', 'og:image', 'twitter:card', 'twitter:title', 'twitter:description']) {
+    const escaped = property.replace(':', '\\:');
+    const count = (content.match(new RegExp(`(?:property|name)=["']${escaped}["']`, 'g')) || []).length;
+    check(
+      count === 1,
+      `${page} has one ${property} declaration`,
+      `${page} has ${count} ${property} declarations`
+    );
+  }
+}
 
 // ──────────────────────────────────────────────
 //  6. robots.txt validation
